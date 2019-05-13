@@ -14,7 +14,7 @@ nano .env
 |---------------------------|---------------------------------------------------------------|
 | `STREAM_HTTP_URL`  | HTTP URL of a radio stream.                            |
 | `ICECAST_MOUNT_MP3`  | Icecast mountpoint name. Should end with '.mp3'     |
-| `ICECAST_PORT`  | Port number available on host to listen relayed stream / output icecast on liquidsoap (port 8000). Should end with '.mp3'     |
+| `ICECAST_PORT`  | Port number available on host to listen relayed stream / output icecast on liquidsoap (port 8000). |
 
 Replace these two environment values with the ones you want
 
