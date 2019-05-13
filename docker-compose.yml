@@ -19,6 +19,6 @@ services:
             - ICECAST_SOURCE_PASSWORD=youcanchangeit
         image: moul/icecast:latest
         ports:
-            - 8009:8000
+            - ${ICECAST_PORT}:8000
         volumes:
             - /etc/localtime:/etc/localtime:ro

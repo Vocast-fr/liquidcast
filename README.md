@@ -14,6 +14,7 @@ nano .env
 |---------------------------|---------------------------------------------------------------|
 | `STREAM_HTTP_URL`  | HTTP URL of a radio stream.                            |
 | `ICECAST_MOUNT_MP3`  | Icecast mountpoint name. Should end with '.mp3'     |
+| `ICECAST_PORT`  | Port number available on host to listen relayed stream / output icecast on liquidsoap (port 8000). Should end with '.mp3'     |
 
 Replace these two environment values with the ones you want
 
@@ -35,7 +36,7 @@ Starting icecast_1    ... done
 Starting liquidsoap_1 ... done
 ```
 
-You can now listen the stream on your localpoint : `localhost:8009/${ICECAST_MOUNT_MP3}`
+You can now listen the stream on your localpoint : `localhost:${ICECAST_PORT}/${ICECAST_MOUNT_MP3}`
 
 
 ## Go further : use the stack for advanced features, with Liquidsoap script file 
