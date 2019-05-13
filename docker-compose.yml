@@ -1,0 +1,24 @@
+version: "3"
+services:
+    liquidsoap:
+        environment:
+            - ICECAST_HOST=icecast
+            - ICECAST_SOURCE_PASSWORD=youcanchangeit
+            - ICECAST_MOUNT_MP3=${ICECAST_MOUNT_MP3}
+            - STREAM_HTTP_URL=${STREAM_HTTP_URL}
+        command: liquidsoap -v --debug 'output.icecast(%mp3, host = getenv("ICECAST_HOST"), port = 8000,password = getenv("ICECAST_SOURCE_PASSWORD"), mount = getenv("ICECAST_MOUNT_MP3"), mksafe(input.http(getenv("STREAM_HTTP_URL"))))'
+        image: moul/liquidsoap:latest
+        user: liquidsoap
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+    icecast:
+        environment:
+            - ICECAST_ADMIN_PASSWORD=youcanchangeit
+            - ICECAST_PASSWORD=youcanchangeit
+            - ICECAST_RELAY_PASSWORD=youcanchangeit
+            - ICECAST_SOURCE_PASSWORD=youcanchangeit
+        image: moul/icecast:latest
+        ports:
+            - 8009:8000
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
